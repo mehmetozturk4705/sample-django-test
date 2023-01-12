@@ -8,12 +8,13 @@ from djangoTest import constants
 
 class OrganizationTier(models.TextChoices):
     FREE = 'FREE'
+    INDIVIDUAL = 'INDIVIDUAL'
     TEAM = 'TEAM'
     ENTERPRISE = 'ENTERPRISE'
 
 
 class Organization(models.Model):
-    name = models.CharField(max_length=20, unique=True)
+    name = models.CharField(max_length=40, unique=True)
     description = models.CharField(max_length=200, null=True)
     domain = models.CharField(max_length=30, unique=True)
     file_storage_bytes_limit = models.PositiveBigIntegerField(default=2 * constants.GB)

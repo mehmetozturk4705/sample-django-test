@@ -6,7 +6,7 @@ from accounts.models import Organization, OrganizationTier
 
 
 class OrganizationSerializer(serializers.ModelSerializer):
-    name = serializers.CharField(max_length=20, validators=[UniqueValidator(queryset=Organization.objects.all())])
+    name = serializers.CharField(max_length=40, validators=[UniqueValidator(queryset=Organization.objects.all())])
     domain = serializers.CharField(max_length=30, validators=[UniqueValidator(queryset=Organization.objects.all())])
     description = serializers.CharField(required=False, max_length=200)
     file_storage_bytes_limit = serializers.IntegerField(read_only=True)
